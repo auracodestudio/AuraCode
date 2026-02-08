@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark Purple Theme */
+    --background: 260 30% 5%;
+    --foreground: 260 20% 96%;
+    --card: 260 25% 8%;
+    --card-foreground: 260 20% 96%;
+    --popover: 260 25% 8%;
+    --popover-foreground: 260 20% 96%;
+    --primary: 270 70% 55%;
+    --primary-foreground: 260 20% 96%;
+    --secondary: 260 20% 12%;
+    --secondary-foreground: 260 20% 96%;
+    --muted: 260 15% 15%;
+    --muted-foreground: 260 10% 60%;
+    --accent: 270 70% 55%;
+    --accent-foreground: 260 20% 96%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 30% 20%;
+    --input: 260 20% 12%;
+    --ring: 270 70% 55%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+  .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Custom Dark Purple Background */
+.bg-dark-purple {
+  background: linear-gradient(135deg, #0f0a1a 0%, #1a1025 50%, #0d0815 100%);
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2d1f3d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3d2a52;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: #f3f0f7;
+}
+
+/* RTL Support */
+body.rtl {
+  font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+}
+
+body.rtl h1,
+body.rtl h2,
+body.rtl h3,
+body.rtl h4,
+body.rtl h5,
+body.rtl h6 {
+  font-family: 'Noto Sans Arabic', 'Space Grotesk', sans-serif;
+}
+
+/* RTL spacing utilities */
+body.rtl .space-x-2 > * + * {
+  --tw-space-x-reverse: 1;
+}
+
+body.rtl .space-x-3 > * + * {
+  --tw-space-x-reverse: 1;
+}
+
+body.rtl .space-x-4 > * + * {
+  --tw-space-x-reverse: 1;
+}
+
+body.rtl .space-x-6 > * + * {
+  --tw-space-x-reverse: 1;
+}
+
+body.rtl .space-x-8 > * + * {
+  --tw-space-x-reverse: 1;
+}
+
+/* RTL margin utilities */
+body.rtl .ml-1 { margin-left: 0; margin-right: 0.25rem; }
+body.rtl .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+body.rtl .ml-3 { margin-left: 0; margin-right: 0.75rem; }
+body.rtl .ml-4 { margin-left: 0; margin-right: 1rem; }
+body.rtl .ml-6 { margin-left: 0; margin-right: 1.5rem; }
+body.rtl .ml-8 { margin-left: 0; margin-right: 2rem; }
+
+body.rtl .mr-1 { margin-right: 0; margin-left: 0.25rem; }
+body.rtl .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+body.rtl .mr-3 { margin-right: 0; margin-left: 0.75rem; }
+body.rtl .mr-4 { margin-right: 0; margin-left: 1rem; }
+body.rtl .mr-6 { margin-right: 0; margin-left: 1.5rem; }
+body.rtl .mr-8 { margin-right: 0; margin-left: 2rem; }
+
+/* RTL padding utilities */
+body.rtl .pl-1 { padding-left: 0; padding-right: 0.25rem; }
+body.rtl .pl-2 { padding-left: 0; padding-right: 0.5rem; }
+body.rtl .pl-3 { padding-left: 0; padding-right: 0.75rem; }
+body.rtl .pl-4 { padding-left: 0; padding-right: 1rem; }
+body.rtl .pl-6 { padding-left: 0; padding-right: 1.5rem; }
+body.rtl .pl-8 { padding-left: 0; padding-right: 2rem; }
+body.rtl .pl-10 { padding-left: 0; padding-right: 2.5rem; }
+body.rtl .pl-12 { padding-left: 0; padding-right: 3rem; }
+
+body.rtl .pr-1 { padding-right: 0; padding-left: 0.25rem; }
+body.rtl .pr-2 { padding-right: 0; padding-left: 0.5rem; }
+body.rtl .pr-3 { padding-right: 0; padding-left: 0.75rem; }
+body.rtl .pr-4 { padding-right: 0; padding-left: 1rem; }
+body.rtl .pr-6 { padding-right: 0; padding-left: 1.5rem; }
+body.rtl .pr-8 { padding-right: 0; padding-left: 2rem; }
+body.rtl .pr-10 { padding-right: 0; padding-left: 2.5rem; }
+
+/* RTL text alignment */
+body.rtl .text-left { text-align: right; }
+body.rtl .text-right { text-align: left; }
+
+/* RTL flex direction */
+body.rtl .flex-row { flex-direction: row-reverse; }
+body.rtl .flex-row-reverse { flex-direction: row; }
+
+/* RTL border radius */
+body.rtl .rounded-l-lg { border-radius: 0; border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem; }
+body.rtl .rounded-r-lg { border-radius: 0; border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem; }
+
+/* RTL positioning */
+body.rtl .left-0 { left: auto; right: 0; }
+body.rtl .right-0 { right: auto; left: 0; }
+body.rtl .left-1 { left: auto; right: 0.25rem; }
+body.rtl .right-1 { right: auto; left: 0.25rem; }
+body.rtl .left-2 { left: auto; right: 0.5rem; }
+body.rtl .right-2 { right: auto; left: 0.5rem; }
+body.rtl .left-3 { left: auto; right: 0.75rem; }
+body.rtl .right-3 { right: auto; left: 0.75rem; }
+body.rtl .left-4 { left: auto; right: 1rem; }
+body.rtl .right-4 { right: auto; left: 1rem; }
+
+/* RTL transforms */
+body.rtl .-translate-x-1\/2 { transform: translateX(50%); }
+body.rtl .translate-x-1\/2 { transform: translateX(-50%); }
+
+/* Scrollbar for RTL */
+body.rtl ::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Arabic text optimizations */
+body.rtl {
+  line-height: 1.7;
+}
+
+body.rtl .font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+  direction: ltr;
+}
+
+/* Purple Theme Specific Styles */
+.text-purple-primary {
+  color: #8b5cf6;
+}
+
+.bg-purple-primary {
+  background-color: #8b5cf6;
+}
+
+.border-purple-primary {
+  border-color: #8b5cf6;
+}
+
+/* Gradient backgrounds */
+.bg-gradient-purple {
+  background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 50%, #1a0b2e 100%);
+}
+
+.bg-gradient-card {
+  background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(76, 29, 149, 0.1) 100%);
+}
+
+/* Glow effects */
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.glow-purple-sm {
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+/* Card hover effects */
+.card-hover-purple {
+  transition: all 0.3s ease;
+}
+
+.card-hover-purple:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}

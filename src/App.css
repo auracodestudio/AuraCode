@@ -1,0 +1,84 @@
+/* App-specific styles */
+
+/* Ensure smooth scroll behavior for GSAP */
+html {
+  scroll-behavior: auto !important;
+}
+
+/* Pin spacer fix for GSAP */
+.pin-spacer {
+  pointer-events: none !important;
+}
+
+.pin-spacer > * {
+  pointer-events: auto !important;
+}
+
+/* Card hover effects */
+.shadow-card {
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.shadow-card:hover {
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.55);
+}
+
+/* Button hover lift */
+.hover\:-translate-y-0\.5:hover {
+  transform: translateY(-2px);
+}
+
+/* Form focus states */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* Custom select styling */
+[data-radix-select-viewport] {
+  padding: 8px !important;
+}
+
+/* Smooth transitions for all interactive elements */
+a,
+button {
+  transition: all 0.2s ease;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile menu animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
